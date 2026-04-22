@@ -1,8 +1,7 @@
 {
   "children": [
-    "relationships",
     "recognizable-layouts",
-    "orientation",
+    "user-orientation",
     "structure",
     "no-obstruction"
   ]

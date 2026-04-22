@@ -1,8 +1,8 @@
 ---
 children:
-  - action-required
-  - inform-at-start-of-process
-  - steps-and-instructions
+  - required-action-available
+  - information-requirements-available-at-start
+  - process-instructions-available
 ---
 
 Users understand how to complete tasks.

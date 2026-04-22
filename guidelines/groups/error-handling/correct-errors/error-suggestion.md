@@ -1,6 +1,0 @@
----
-status: developing
-type: foundational
----
-
-Error messages include suggestions for corrections that can be automatically determined, unless it would jeopardize the security or purpose of the :term[content].

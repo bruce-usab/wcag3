@@ -1,37 +1,27 @@
 ---
 children:
-  - readable-blocks-of-text
-  - readable-text-style
-  - adjustable-blocks-of-text
-  - adjustable-text-style
-  - content-and-functionality-not-lost-with-text-adjustment
-  - readable-blocks-of-text-enhanced
-  - readable-text-style-enhanced
+  - blocks-of-text-readable-minimum
+  - text-style-readable-minimum
+  - text-contrast-sufficient-minimum
+  - blocks-of-text-adjustable
+  - text-style-adjustable
+  - text-size-adjustable
+  - text-color-adjustable
+  - blocks-of-text-readable-enhanced
+  - text-style-readable-enhanced
+  - text-contrast-sufficient-enhanced
+  - text-customizations-retained
 ---
 
 Users can read visually rendered :term[text].
 
-:::decision-tree
-For each word of text:
-1. Is the text purely :term[decorative] or, is it not readable by anybody?
-   - Yes, Pass
-   - No, Continue
-2. Does the default/authored presentation meet minimum :term[requirements]?
-    1. Yes, the default/authored presentation meets <a href="#readable-blocks-of-text">Readable Blocks of Text (foundational)</a> and <a href="#readable-text-style">Readable Text Style (foundational)</a>, Continue
-    2. No, Fail
-3. Can the text appearance be adjusted by the user?
-    1. Yes, text must be :term[user-manipulable text] and:
-        1. The :term[accessibility support set] meets:
-            1. <a href="#adjustable-blocks-of-text">Adjustable blocks of text</a>
-            2. <a href="#adjustable-text-style">Adjustable text style</a>
-        2. <a href="#content-and-functionality-not-lost-with-text-adjustment">Content and functional are not lost with text adjustment</a>
-        3. Pass
-    2. Yes, via produce-provided themes:
-        1. <a href="#adjustable-blocks-of-text">Adjustable blocks of text</a>
-        2. <a href="#adjustable-text-style">Adjustable text style</a>
-        3. <a href="#content-and-functionality-not-lost-with-text-adjustment">Content and functional are not lost with text adjustment</a>
-        4. Pass
-    3. No, and the :term[product] does not provide its own themes:
-        1. Fail.
+:::ednote
+AGWG remains committed to providing Text Appearance guidance for multiple
+scripts and/or languages. To support our internationalization goals, AGWG is exploring
+ways to:
 
+- not require WCAG 3 to be republished when metrics are added for more scripts/languages,
+- make script/language-specific metrics normative,
+- meet the needs of different scripts and languages by allowing flexibility in which metrics are required and in their values, and
+- preserve backward compatibility.
 :::

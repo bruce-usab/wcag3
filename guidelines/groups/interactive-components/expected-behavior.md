@@ -1,12 +1,8 @@
 ---
 children:
-  - consistent-interaction
-  - consistent-labels
-  - consistent-visual-design
-  - control-location
-  - conventions
-  - familiar-component
-  - reliable-positioning
+  - consistent-interactions
+  - consistent-control-location
+  - conventional-pattern-used
 ---
 
-Users have :term[interactive components] that behave as expected.
+Users can interact with :term[interactive elements] that behave as expected.

@@ -1,4 +1,5 @@
 ---
+status: exploratory
 title: pseudo-motion
 ---
 

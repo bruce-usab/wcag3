@@ -1,9 +1,7 @@
 ---
 children:
-  - adjust-color
-  - adjust-background
-  - font-size-meaning
-  - text-customization
+  - background-adjustable
+  - font-size-not-relied-on
 ---
 
 Users can control :term[text] presentation.

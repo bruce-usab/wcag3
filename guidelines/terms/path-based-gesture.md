@@ -1,10 +1,10 @@
 ---
 status: developing
-title: path-based gesture
+title: Path-based gesture
 ---
 
 gesture that depends on the path of the pointer input and not just its endpoints
 
 :::note
-Path based gesture includes both time dependent and non-time dependent path-based gestures.
+Path-based gesture includes both time dependent and non-time dependent path-based gestures.
 :::

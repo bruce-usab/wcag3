@@ -1,10 +1,10 @@
 ---
 children:
-  - text-to-speech-supported
-  - human-language
-  - semantic-text-appearance
-  - unambiguous-numerical-formatting
+  - text-detectable
+  - human-language-detectable
+  - text-appearance-not-relied-on
+  - numerical-metadata-available
 title: Text-to-speech
 ---
 
-Users can access :term[text] :term[content] and its meaning with text-to-speech tools.
+Users can access :term[text content] and its meaning with text-to-speech tools.

@@ -48,9 +48,9 @@ Additional directories with special meaning:
     - `index.json` - Defines order of grouping sections
     - `{group-name}.json` - Defines order of underlying guideline sections; can specify status or title
     - `{group-name}/` - Contents of Guideline sections
-      - `{guideline-name}.md` - Defines content of guideline and order of its requirements/assertions
-      - `{guideline-name}/` - Subdirectory containing requirements/assertions under each guideline
-        - `{requirement-or-assertion-name}.md` - Defines content of an individual requirement or assertion
+      - `{guideline-name}.md` - Defines content of guideline and order of its child provisions
+      - `{guideline-name}/` - Subdirectory containing provisions (e.g. requirements/assertions) under each guideline
+        - `{provision-name}.md` - Defines content of an individual requirement or assertion
   - `terms/` - Contents of terms defined in the Glossary
 
 ### Notable Subdirectories under `src`
@@ -64,7 +64,7 @@ Additional directories with special meaning:
 ### Supported Fields
 
 This section explains the fields available to frontmatter defined at the top of Markdown files
-for guidelines, requirements/assertions, and terms, and within JSON files for groups.
+for guidelines, provisions, and terms, and within JSON files for groups.
 
 For those unfamiliar with the term, frontmatter refers to YAML written at the top of a file,
 surrounded on each side by a line consisting of 3 hyphens.
@@ -99,15 +99,15 @@ subdirectory with the same name.
 
 #### Guidelines
 
-Represents each fourth-level heading that multiple requirements/assertions are
-listed under. Each guideline is defined in a Markdown file, with its child
-requirements/assertions located in a subdirectory with the same name.
+Represents each fourth-level heading that multiple provisions (requirements/assertions)
+are listed under. Each guideline is defined in a Markdown file, with its child
+provisions located in a subdirectory with the same name.
 
 - Supports [common fields](#common-fields): `children`, `howto`, `status`, `title`
   - `status` for guidelines is optional, limited to `developing`, `refining`, `mature`
 - No additional unique fields
 
-#### Requirements and Assertions
+#### Provisions
 
 Represents each fifth-level heading specifying an individual requirement or assertion.
 
@@ -115,7 +115,9 @@ Represents each fifth-level heading specifying an individual requirement or asse
   - `status` for requirements and assertions defaults to `exploratory` if not specified
 - `needsAdditionalResearch` - Optional boolean, indicating whether to
   display a "needs additional research" editor's note
-- `type` - Optional string: `foundational`, `supplemental`, or `assertion`
+- `tags` - Optional list of strings, referencing values in `guidelines/tags.json`
+  - Make sure to surround these values in double-quotes to avoid YAML parsing errors
+- `type` - Optional string: `foundational`, `supplemental`, `assertion`, or `best practice`
   - If not specified, the entry will be rendered as "Requirement"
     (with neither "Foundational" nor "Supplemental" qualification)
 
@@ -127,6 +129,8 @@ Represents each `dt`/`dd` pair appearing in the Glossary section.
 - `synonyms` - Optional list of other words or phrases that can be used to reference this term
   - This does **not** need to include plurals where the final word ends in "s" or "es";
     this is automatically supported
+- `unusedDefinition` - Boolean flag; if true,
+  [suppresses ReSpec's unused definition warning](https://respec.org/docs/#lint-ignore) for this term
 
 **Note:** If a term file is empty, a "to be defined" Editor's Note will be inserted.
 
@@ -153,10 +157,21 @@ Another shared term
 
 For more concrete examples, search for these directives in the repository.
 
+#### Comments
+
+Comment blocks will be excluded from output. They can be used e.g.
+to document thought processes that led to how content was written.
+
+```
+:::comment
+This will not be displayed.
+:::
+```
+
 #### Decision Trees
 
 The following block will be transformed into a decision tree `details` element,
-with "Which foundational requirements apply" summary automatically included:
+with "Which core requirements apply" summary automatically included:
 
 ```
 :::decision-tree
@@ -198,6 +213,74 @@ The following block will be transformed into a green "Editor's Note" box:
 Your content here
 :::
 ```
+
+#### User Needs
+
+The following block will be transformed into a User Needs `details` element,
+with an indication that its content is non-normative.
+This is _only_ valid within guidelines.
+
+```
+:::user-needs
+Your content here
+:::
+```
+
+#### Tests
+
+The following block will be transformed into a Tests `details` element,
+with an indication that its content is non-normative.
+This is _only_ valid within requirements.
+
+```
+:::tests
+Your content here
+:::
+```
+
+#### Applies when
+
+The following block will be preceded by "Applies when".
+This is _only_ valid within requirements.
+
+```
+:::applies-when
+a condition is true.
+:::
+```
+
+The label, "Applies when", will be prepended to the first paragraph in the block. If the first content item is anything other than a paragraph (e.g. if the block only contains a list), it will appear in a separate paragraph before the content.
+
+#### Except when
+
+The following block will be preceded by "Except when".
+This is _only_ valid within requirements.
+
+```
+:::except-when
+a condition is true.
+:::
+```
+
+This follows the same behavior as `:::applies-when` regarding single paragraphs vs. other cases.
+
+#### Assertions replacements
+
+The following leaf directives are to be used before required and recommended documentation to be included for assertions:
+
+```
+::assertion-required
+
+- List item
+- ...
+
+::assertion-recommended
+
+- List item
+- ...
+```
+
+Note that these are leaf directives, not container directives, so there is no end marker.
 
 #### Glossary Term References
 
@@ -274,7 +357,7 @@ To create a new guideline:
      @@ add guideline text here
 
      ```
-     We will expand `children` to a multi-line list when adding requirements/assertions.
+     We will expand `children` to a multi-line list when adding provisions.
      Note that including some content after the frontmatter is also necessary for the build to function.
 1. Follow the instructions below to create at least one requirement
    or assertion within the guideline
@@ -286,7 +369,7 @@ its parent group as `group-name`, and the new child requirement as `requirement-
 
 Note that the process is the same for requirements or assertions; the only difference is
 the value of `type` in the entry's frontmatter
-(see [Fields for Requirements and Assertions](#requirements-and-assertions)).
+(see [Fields for Provisions](#provisions)).
 
 1. Under the desired guideline's folder, create a Markdown file
    (e.g. `groups/group-name/guideline-name/requirement-name.md`)
@@ -320,5 +403,5 @@ built code is not expected to run properly when this is active!
 
 ### `WCAG_SKIP_WIP`
 
-When set, excludes requirements/assertions that have `needsAdditionalResearch` set to `true`,
+When set, excludes provisions that have `needsAdditionalResearch` set to `true`,
 or that have `status` set to `placeholder` or `exploratory`.

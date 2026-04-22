@@ -1,8 +1,8 @@
 version: "0.2"
-allowCompoundWords: true
 minWordLength: 3
+language:
+  - en-us
 dictionaries:
-  - en_US
   - companies
   - softwareTerms
   - css
@@ -21,11 +21,16 @@ ignorePaths:
   - "*.json"
   - "*.svg"
   - "*.ts"
+  - "*.yml"
   - "custom-words.txt"
 useGitignore: true
 overrides:
   - filename: "guidelines/**"
-    flagWords: [contains] # Prefer "includes" over "contains" in guidelines
+    flagWords: 
+      - "contains: includes" # Prefer "includes" over "contains" in guidelines
+flagWords:
+  - "e-mail: email"
+  - "expted: excepted" # Typo that is mysteriously accepted by en_US/GB dictionaries
 patterns:
   # Define patterns here to be reusable across multiple file types below
   - name: encoded-citations

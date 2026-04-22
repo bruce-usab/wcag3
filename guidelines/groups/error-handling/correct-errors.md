@@ -1,15 +1,13 @@
 ---
 children:
-  - error-notification
-  - error-cause-identified
-  - descriptive-errors
-  - error-cause-in-notification
-  - error-suggestion
-  - error-visibility
-  - error-persists
-  - error-cause-association
-  - error-linked
-  - error-location
+  - error-notifications-available
+  - error-suggestions-provided
+  - errors-indicated-in-multiple-ways
+  - error-messages-persistent
+  - errors-associated
+  - error-messages-collocated
 ---
 
 Users know about and can correct errors.
+
+

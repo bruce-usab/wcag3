@@ -1,18 +1,15 @@
 ---
 children:
-  - no-unnecessary-words
+  - abbreviations-explained
+  - non-literal-language-explained
+  - summaries-available
+  - common-words-used
+  - diacritics-available
   - no-nested-clauses
-  - common-words
-  - abbreviations
-  - non-literal-language
-  - numerical-alternatives
-  - visual-aids
-  - summaries
-  - unambiguous-meaning
-  - review-process
-  - clear-language-style-guide
-  - clear-language-training-policy
-  - plain-language-review
+  - no-unnecessary-words
+  - numerical-alternatives-available
+  - clear-language-review
+  - visual-aids-review
 
 status: developing
 ---
@@ -30,7 +27,7 @@ See also: [Structure](#structure) as these guidelines are closely related.
 
 :::ednote
 To ensure this guideline works well across different languages,
-members of AG, COGA, and internationalization (i18n) agreed on an initial set of languages to pressure-test the guidance.
+members of AGWG, Cognitive and Learning Disabilities Accessibility Task Force (COGA), and internationalization (i18n) agreed on an initial set of languages to pressure-test the guidance.
 
 The five "guardrail" languages are:
 

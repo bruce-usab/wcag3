@@ -1,10 +1,10 @@
 ---
 children:
-  - pointer-cancellation
-  - simple-pointer-input
+  - pointer-controllable
+  - simple-pointer-input-available
   - consistent-pointer-cancellation
-  - pointer-pressure-alternative
-  - pointer-speed-alternative
+  - pointer-pressure-not-relied-on
+  - pointer-speed-not-relied-on
 ---
 
 :term[Pointer] input is consistent and all functionality can be done with :term[simple pointer input] in a time and pressure insensitive way.

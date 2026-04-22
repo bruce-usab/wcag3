@@ -124,8 +124,11 @@ import GuidelinesRespecDev from "./GuidelinesRespecDev.astro";
       preText.classList.add("requirement-type");
       if (requirementType == "assertion") {
         preText.innerHTML = "Assertion: ";
+      } else if (requirementType === "best practice") {
+        preText.innerHTML = "Best practice: ";
       } else if (requirementType == "foundational" || requirementType == "supplemental") {
-        preText.innerHTML = sentenceCase(requirementType) + " requirement: ";
+        preText.innerHTML =
+          sentenceCase(requirementType.replace(/^foundational$/, "core")) + " requirement: ";
       } else {
         preText.innerHTML = "Requirement: ";
       }
@@ -349,18 +352,18 @@ import GuidelinesRespecDev from "./GuidelinesRespecDev.astro";
         w3cid: 90310,
       },
       {
-        name: "Chuck Adams",
-        mailto: "charles.adams@oracle.com",
-        company: "Oracle",
-        companyURI: "https://www.oracle.com/",
-        w3cid: 104852,
-      },
-      {
         name: "Alastair Campbell",
         mailto: "acampbell@nomensa.com",
         company: "Nomensa",
         companyURI: "https://www.nomensa.com/",
         w3cid: 44689,
+      },
+      {
+        name: "Chuck Adams",
+        mailto: "charles.adams@oracle.com",
+        company: "Oracle",
+        companyURI: "https://www.oracle.com/",
+        w3cid: 104852,
       },
       {
         name: "Kevin White",
@@ -370,11 +373,18 @@ import GuidelinesRespecDev from "./GuidelinesRespecDev.astro";
         w3cid: 71819,
       },
       {
-        name: "Jeanne Spellman",
-        mailto: "jspellman@spellmanconsulting.com",
-        company: "TetraLogical",
-        companyURI: "https://tetralogical.com/",
-        w3cid: 42417,
+        name: "Giacomo Petri",
+        mailto: " giacomo.petri@usablenet.com",
+        company: "UsableNet",
+        companyURI: "https://usablenet.com/",
+        w3cid: 138133,
+      },
+      {
+        name: "Julie Rawe",
+        mailto: "jrawe@understood.org",
+        company: "Understood.org",
+        companyURI: "http://www.understood.org ",
+        w3cid: 133381,
       },
       {
         name: "Francis Storr",
@@ -383,9 +393,29 @@ import GuidelinesRespecDev from "./GuidelinesRespecDev.astro";
         companyURI: "https://intel.com/",
         w3cid: 90883,
       },
+      {
+        name: "Makoto Ueki",
+        mailto: "makoto.ueki@gmail.com",
+        company: "Invited Expert",
+        w3cid: 36724,
+      },
+      {
+        name: "Hidde de Vries",
+        mailto: "hidde@hiddedevries.nl",
+        company: "Logius",
+        companyURI: "https://www.logius.nl/english/",
+        w3cid: 152469,
+      },
     ],
 
     formerEditors: [
+      {
+        name: "Jeanne Spellman",
+        mailto: "jspellman@spellmanconsulting.com",
+        company: "TetraLogical",
+        companyURI: "https://tetralogical.com/",
+        w3cid: 42417,
+      },
       {
         name: "Michael Cooper, Staff Contact, 2016-2023",
         company: "W3C",
